@@ -20,5 +20,7 @@ locals {
 output "values" {
   value = <<-EOF
     ${jsonencode(local.secrets)}
+    ${jsonencode(var.ulimits)}
+    
   EOF
 }
