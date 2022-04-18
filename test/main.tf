@@ -17,9 +17,9 @@ locals {
   ]
 
   ulimits = [
-    for limit in var.ulimits:
+    for limit in var.ulimits :
     {
-      name = limit.name
+      name      = limit.name
       hardLimit = tonumber(limit.hardLimit)
       softLimit = tonumber(limit.softLimit)
     }
@@ -27,9 +27,9 @@ locals {
   ]
 
   container_definition = {
-    name                  = "Container"
-    secrets               = local.secrets
-    ulimits               = local.ulimits
+    name    = "Container"
+    secrets = local.secrets
+    ulimits = local.ulimits
   }
 
   container_definition_json = format("[%s]", jsonencode(local.container_definition))
